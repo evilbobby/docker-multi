@@ -1,0 +1,19 @@
+
+services:
+  app1:
+    # build: "./app1"
+    image: node:18-alpine
+    command: sh -c "npm install"
+    ports:
+      - 3000:3000
+    working_dir: /app1
+    volumes:
+      - ./:/app1 
+
+  # mysql:
+  #   image: mysql:8.0
+  #   volumes:
+  #     - todo-mysql-data:/var/lib/mysql
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: secret
+  #     MYSQL_DATABASE: todos
