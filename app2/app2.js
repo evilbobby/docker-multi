@@ -7,7 +7,7 @@ const express = require('express')
 const app = express()
 const db = require('./persistence');
 const { v4: uuid } = require('uuid');
- 
+
 app.get('/', (req, res) => {
 
   console.log("got request");
@@ -17,12 +17,12 @@ app.get('/', (req, res) => {
     name: `todo item ${appName}`,
     completed: false,
   };
-
-  (async () => await db.storeItem(item))();
-
-  db.getItems().then(rows =>
-    console.log("rows: " + rows.length)
-  );
+ 
+  db.storeItem(item).then(() =>
+    db.getItems().then(rows =>
+      console.log("rows: " + rows.length)
+    )
+  ) 
 
   res.send(`Hello World! ${appName}`)
 })
