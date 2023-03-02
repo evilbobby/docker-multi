@@ -7,5 +7,5 @@ COPY package-lock.json /package-lock.json
 RUN npm install
 
 COPY . .
-CMD ["node", "app1.js"]
+CMD ["node", "src/index.js"]
 EXPOSE 3000
