@@ -5,26 +5,25 @@ services:
     ports:
       - 3000:3000 
     volumes:
-      - ./app1:/app1
+      - ./app1:/app1 
   app2:
     build:
       context: app2  
     ports:
       - 3001:3001 
     volumes:
-      - ./app2:/app2
-    environment:
-      MYSQL_HOST: mysql
-      MYSQL_USER: root
-      MYSQL_PASSWORD: secret
-      MYSQL_DB: todos 
-  mysql:
+      - ./app2:/app2 
+  db:
     image: mysql:8.0
     volumes:
       - todo-mysql-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: todos
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: todos 
 
 volumes:
   todo-mysql-data:
