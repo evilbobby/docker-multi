@@ -15,6 +15,8 @@ services:
     networks:
       - private
       - public
+    depends_on:
+      - db
     environment:
       MYSQL_HOST: db
       MYSQL_USER: root
@@ -30,6 +32,8 @@ services:
     networks:
       - private
       - public
+    depends_on:
+      - db      
     environment:
       MYSQL_HOST: db
       MYSQL_USER: root
