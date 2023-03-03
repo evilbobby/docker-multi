@@ -6,4 +6,4 @@
 #############
 
 mkdir var/lib/mysql -p # create directory for volumes
-sudo docker-compose -f docker-compose-synology up -d --build 
+sudo docker-compose -f docker-compose-synology.yml up -d --build 
