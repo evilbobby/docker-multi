@@ -63,7 +63,7 @@ if [ "$need_start" == "false" ] ; then
   printf "\nNo changes found. Container is already running.\n"
 elif [ "$need_build" == "true" ]; then
   echo_title "BUILDING & STARTING CONTAINER"
-  mkdir var/lib/mysql -p # create directory for volumes
+  # mkdir var/lib/mysql -p # create directory for volumes
   docker-compose up -d --build
 else
   echo_title "STARTING CONTAINER"
